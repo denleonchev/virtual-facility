@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
-import { WorkflowsServiceController } from './workflows-service.controller';
-import { WorkflowsServiceService } from './workflows-service.service';
-import { WorkflowsModule } from './workflows/workflows.module';
+import { AppController } from './app.controller';
+import { AppService } from './app.service';
+import { BuildingsModule } from './buildings/buildings.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
 @Module({
@@ -16,9 +16,9 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       autoLoadEntities: true,
       synchronize: true,
     }),
-    WorkflowsModule,
+    BuildingsModule,
   ],
-  controllers: [WorkflowsServiceController],
-  providers: [WorkflowsServiceService],
+  controllers: [AppController],
+  providers: [AppService],
 })
-export class WorkflowsServiceModule {}
+export class AppModule {}
